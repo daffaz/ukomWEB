@@ -1,4 +1,4 @@
-<?php include('koneksi.php') ?>
+<?php include('deploy/koneksi.php') ?>
 <!-- BUAT STATISTIK -->
 
 <!DOCTYPE html>
@@ -8,7 +8,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UKOM</title>
-  <link rel="stylesheet" href="style.css" />
   <!-- FONT -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
@@ -18,106 +17,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
 
-    body {
-      font-family: "Nunito", sans-serif;
-    }
-
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(#f00, #f0f);
-      clip-path: circle(16% at right 70%);
-    }
-
-    body::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      background: linear-gradient(#2f1270, #8d0d38);
-      clip-path: circle(20% at 10% 10%);
-    }
-
-    .bg-ungu {
-      background-color: #272552;
-    }
-
-    .bg-ungu-2 {
-      background: linear-gradient(rgba(146, 84, 204, 0.2),
-          rgba(95, 70, 202, 0.2));
-    }
-
-    .bg-ungu-3 {
-      background: linear-gradient(rgba(197, 132, 240, 0.2),
-          rgba(185, 160, 217, 0.2));
-    }
-
-    .text-ungu-tua {
-      color: #272552;
-    }
-
-    .text-ungu {
-      color: #5954cc;
-    }
-
-    .bg-ungu-muda {
-      background-image: linear-gradient(rgba(146, 84, 204, 0.2),
-          rgba(95, 70, 202, 0.2));
-      /* background: rgba(255, 255, 255, 0.1); */
-      backdrop-filter: blur(5px);
-    }
-
-    .tinggi {
-      min-height: 80vh;
-    }
-
-    /* CUSTOM HEIGHT */
-    .height-50 {
-      height: 50vh;
-    }
-
-    /* END CUSTOME HEIGHT */
-    /* OUTSIDE STYLE */
-    .gradient {
-      background-image: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
-    }
-
-    .browser-mockup {
-      border-top: 2em solid rgba(230, 230, 230, 0.7);
-      position: relative;
-      height: 60vh;
-    }
-
-    .browser-mockup:before {
-      display: block;
-      position: absolute;
-      content: "";
-      top: -1.25em;
-      left: 1em;
-      width: 0.5em;
-      height: 0.5em;
-      border-radius: 50%;
-      background-color: #f44;
-      box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
-    }
-
-    .browser-mockup>* {
-      display: block;
-    }
-
-    /* END OUTSIDE STYLE */
   </style>
 </head>
 
@@ -136,7 +38,7 @@
       </div>
     </div>
   </div>
-  <div id="home" class="pembungkus z-10 w-11/12 bg-ungu-muda mb-24 rounded-2xl h-screen mx-auto shadow-2xl pb-6 mb-6">
+  <div id="home" class="pembungkus z-10 w-11/12 bg-ungu-muda rounded-2xl h-screen mx-auto shadow-2xl pb-6 mb-6">
     <main class="flex h-full p-2">
       <!-- BAGIAN SIDEBAR -->
       <div class="w-1/12 flex flex-col py-8 justify-between items-center h-full rounded-xl bg-ungu mb-12 shadow-lg">
@@ -180,9 +82,7 @@
         <!-- MENU MAIN -->
         <div class="mb-4 bg-ungu height-50 overflow-hidden py-4 rounded-lg px-6 text-white shadow-xl flex">
           <!--CHART CONTAINER-->
-          <div class="w-2/6">very cool</div>
-          <div class="w-4/6 rounded-lg overflow-hidden" id="chart-container">FusionCharts will render here</div>
-
+          <div class="w-full rounded-lg overflow-hidden" id="chart-container">FusionCharts will render here</div>
           <!--END CHART CONTAINER-->
         </div>
         <!--END MENU MAIN-->
@@ -219,10 +119,10 @@
                   ?>
                     <tr class="bg-white border-4 border-gray-200">
                       <td>
-                        <span class="text-center ml-2 font-semibold ml-8"><?= "dr. " . $baris['first_name'] . ' ' . $baris['last_name'] ?></span>
+                        <span class="text-center font-semibold ml-8"><?= "dr. " . $baris['first_name'] . ' ' . $baris['last_name'] ?></span>
                       </td>
                       <td class="px-16 py-2">
-                        <span class="text-center ml-2"><?= $baris['gender'] ?></span>
+                        <span class="text-center ml-2"><?= $baris['gender'] == "Pria" ? "Male" : "Female" ?></span>
                       </td>
                       <td class="px-16 py-2">
                         <span class="text-center ml-2">Active</span>
@@ -243,7 +143,7 @@
   <div class=" h-screen bg-ungu-2 leading-relaxed tracking-wide flex flex-col pt-12">
     <div class="flex justify-start items-center" id="statistika">
       <div class="w-4/12">
-        <div class="text-xl text-white tracking-wide font-bold uppercase text-4xl mx-6">Statistic section</div>
+        <div class="text-white tracking-wide font-bold uppercase text-4xl mx-6">Statistic section</div>
         <div class="mx-6 text-white text-lg leading-6">In this section, contains all the requested task for fulfilling one of the subject study </div>
       </div>
       <div class="flex items-center w-8/12 content-end">
@@ -260,7 +160,7 @@
   <!-- SECTION KETIGA -->
   <section class="min-h-screen flex flex-col pt-2 items-center">
     <div class="w-4/12 my-12">
-      <div id="database" class="text-xl text-center text-white tracking-wide font-bold uppercase text-4xl">Database section</div>
+      <div id="database" class="text-center text-white tracking-wide font-bold uppercase text-4xl">Database section</div>
       <div class="text-center text-white text-lg leading-6">In this section, contains all the requested task for fulfilling one of the subject study</div>
     </div>
     <div class="rounded-lg">
@@ -314,7 +214,7 @@
             </thead>
             <tbody class="bg-gray-200">
               <?php
-              $query = "select count(*) as 'banyak', MONTH(bulan) as 'bulan' FROM tbl_pasien GROUP BY bulan ORDER BY MONTH(bulan)";
+              $query = "SELECT EXTRACT(month FROM bulan) as month, count(bulan) as jumlah_total, bulan FROM tbl_pasien GROUP BY EXTRACT(month FROM bulan) ORDER BY EXTRACT(month FROM bulan)";
               $hasil = mysqli_query($koneksi, $query);
               if (!$hasil) {
                 die("Query error: " . mysqli_errno($koneksi) . " - " . mysqli_error($koneksi));
@@ -323,14 +223,14 @@
               ?>
                 <tr class="bg-white">
                   <td>
-                    <?php $monthNum  = $baris['bulan'];
+                    <?php $monthNum  = $baris['month'];
                     $dateObj   = DateTime::createFromFormat('!m', $monthNum);
                     $monthName = $dateObj->format('F'); // March
                     ?>
-                    <span class="text-center ml-2 font-semibold ml-8"><?= $monthName ?></span>
+                    <span class="text-center font-semibold ml-8"><?= $monthName ?></span>
                   </td>
                   <td class="px-16 py-2">
-                    <span class="text-center ml-24"><?= $baris['banyak'] ?></span>
+                    <span class="text-center ml-24"><?= $baris['jumlah_total'] ?></span>
                   </td>
                 </tr>
               <?php endwhile ?>
@@ -368,7 +268,7 @@
                     <span class="text-center font-semibold ml-16"><?= $baris['usia'] ?></span>
                   </td>
                   <td class="px-16 py-2">
-                    <span class="text-center"><?= $baris['banyak'] ?></span>
+                    <span class="text-center" style="margin-left: 12rem;"><?= $baris['banyak'] ?></span>
                   </td>
                 </tr>
               <?php endwhile ?>
@@ -396,7 +296,7 @@
               ?>
                 <tr class="bg-white">
                   <td class="px-16 py-2">
-                    <span class="text-center ml-24"><?= $baris['banyak'] ?></span>
+                    <span class="text-center ml-24" style="margin-left: 17rem;"><?= $baris['banyak'] ?></span>
                   </td>
                 </tr>
               <?php endwhile ?>
@@ -409,7 +309,7 @@
       <div class="flex flex-wrap my-5">
 
         <div class="bg-white p-2 rounded-lg overflow-hidden">
-          <table id="myTable3" class="p-1">
+          <table id="myTable5" class="p-1">
             <thead class="justify-between">
               <tr class="bg-gray-400">
                 <th class="px-16 py-2">
@@ -420,7 +320,7 @@
             <tbody class="bg-gray-200">
               <tr class="bg-white">
                 <td class="px-16 py-2">
-                  <span class="text-center">5</span>
+                  <span class="text-center" style="margin-left: 17rem;">5</span>
                 </td>
               </tr>
             </tbody>
@@ -432,7 +332,7 @@
 
   <section class="h-screen flex pt-12 bg-ungu-2 items-center">
     <div class="w-4/12">
-      <div class="text-xl text-white tracking-wide font-bold uppercase text-4xl mx-12">Multimedia section</div>
+      <div class="text-white tracking-wide font-bold uppercase text-4xl mx-12">Multimedia section</div>
       <div class="text-white text-lg mx leading-6 mx-12">In this section, contains all the requested task for fulfilling one of the subject study</div>
     </div>
     <div class="w-8/12">
@@ -491,27 +391,32 @@
   <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $('#myTablessDokter').DataTable({
+      $('#myTableDokter').DataTable({
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
         pageLength: 6
       });
-      $('#myTabssles').DataTable({
+      $('#myTables').DataTable({
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
         pageLength: 6
       });
-      $('#myTablsse2').DataTable({
+      $('#myTable2').DataTable({
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
         pageLength: 6
       });
-      $('#myTabssle3').DataTable({
+      $('#myTable3').DataTable({
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
         pageLength: 6
       });
-      $('#myTabssle4').DataTable({
+      $('#myTable4').DataTable({
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+        pageLength: 6
+      });
+      $('#myTable5').DataTable({
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
         pageLength: 6
@@ -528,7 +433,7 @@
   <script type="text/javascript">
     $(function() {
       $.ajax({
-        url: "http://localhost/ukomWEB/masuk.php",
+        url: "http://localhost/ukomWEB/deploy/masuk.php",
         type: "GET",
         success: function(data) {
           let chartData = data;
@@ -540,7 +445,7 @@
             theme: "fusion"
           };
           apiChart = new FusionCharts({
-            type: "column2d",
+            type: "line",
             renderAt: "chart-container",
             width: "100%",
             height: "100%",
@@ -557,7 +462,7 @@
 
     $(function() {
       $.ajax({
-        url: "http://localhost/ukomWEB/masuk.php",
+        url: "http://localhost/ukomWEB/deploy/masuk.php",
         type: "GET",
         success: function(data) {
           let chartData = data;
@@ -569,7 +474,7 @@
             theme: "fusion"
           };
           apiChart = new FusionCharts({
-            type: "column2d",
+            type: "bar2d",
             renderAt: "chart-containeer",
             width: "100%",
             height: "100%",

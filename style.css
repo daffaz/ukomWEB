@@ -22,7 +22,7 @@ Use a more readable tab size (opinionated).
 :root {
   -moz-tab-size: 4;
   -o-tab-size: 4;
-     tab-size: 4;
+  tab-size: 4;
 }
 
 /**
@@ -53,16 +53,9 @@ Improve consistency of default fonts in all browsers. (https://github.com/sindre
 */
 
 body {
-  font-family:
-		system-ui,
-		-apple-system, /* Firefox supports this but not yet `system-ui` */
-		'Segoe UI',
-		Roboto,
-		Helvetica,
-		Arial,
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji';
+  font-family: system-ui, -apple-system,
+    /* Firefox supports this but not yet `system-ui` */ "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 /*
@@ -132,8 +125,7 @@ Forms
 */
 
 button,
-input,
-select {
+input {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
@@ -145,8 +137,8 @@ Remove the inheritance of text transform in Edge and Firefox.
 1. Remove the inheritance of text transform in Firefox.
 */
 
-button,
-select { /* 1 */
+button {
+  /* 1 */
   text-transform: none;
 }
 
@@ -155,7 +147,7 @@ Correct the inability to style clickable types in iOS and Safari.
 */
 
 button,
-[type='button'] {
+[type="button"] {
   -webkit-appearance: button;
 }
 
@@ -217,7 +209,6 @@ Add the correct display in Chrome and Safari.
  * Removes the default spacing and border for appropriate elements.
  */
 
-
 h1,
 h3,
 hr,
@@ -252,7 +243,9 @@ button:focus {
  */
 
 html {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -364,8 +357,7 @@ a {
  */
 
 button,
-input,
-select {
+input {
   padding: 0;
   line-height: inherit;
   color: inherit;
@@ -385,7 +377,6 @@ select {
  *
  * https://github.com/mozdevs/cssremedy/issues/14
  */
-
 
 svg,
 iframe {
@@ -436,8 +427,8 @@ iframe {
 
 .appearance-none {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .bg-transparent {
@@ -704,10 +695,6 @@ iframe {
   margin-left: 4rem;
 }
 
-.mb-24 {
-  margin-bottom: 6rem;
-}
-
 .ml-24 {
   margin-left: 6rem;
 }
@@ -842,22 +829,27 @@ iframe {
 }
 
 .shadow-lg {
-  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 * {
-  --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+  --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgba(59, 130, 246, 0.5);
@@ -994,7 +986,8 @@ iframe {
 }
 
 @keyframes ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(2);
     opacity: 0;
   }
@@ -1002,26 +995,26 @@ iframe {
 
 @keyframes pulse {
   50% {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-25%);
-    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
-            animation-timing-function: cubic-bezier(0.8,0,1,1);
+    -webkit-animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
 
   50% {
     transform: none;
-    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
-            animation-timing-function: cubic-bezier(0,0,0.2,1);
+    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
 @media (min-width: 768px) {
-
   .md\:flex-row {
     flex-direction: row;
   }
@@ -1045,7 +1038,6 @@ iframe {
 }
 
 @media (min-width: 1024px) {
-
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -1055,3 +1047,105 @@ iframe {
     width: auto;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#f00, #f0f);
+  clip-path: circle(16% at right 70%);
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: linear-gradient(#2f1270, #8d0d38);
+  clip-path: circle(20% at 10% 10%);
+}
+
+.bg-ungu {
+  background-color: #272552;
+}
+
+.bg-ungu-2 {
+  background: linear-gradient(rgba(146, 84, 204, 0.2), rgba(95, 70, 202, 0.2));
+}
+
+.bg-ungu-3 {
+  background: linear-gradient(
+    rgba(197, 132, 240, 0.2),
+    rgba(185, 160, 217, 0.2)
+  );
+}
+
+.text-ungu-tua {
+  color: #272552;
+}
+
+.text-ungu {
+  color: #5954cc;
+}
+
+.bg-ungu-muda {
+  background-image: linear-gradient(
+    rgba(146, 84, 204, 0.2),
+    rgba(95, 70, 202, 0.2)
+  );
+  /* background: rgba(255, 255, 255, 0.1); */
+  backdrop-filter: blur(5px);
+}
+
+.tinggi {
+  min-height: 80vh;
+}
+
+/* CUSTOM HEIGHT */
+.height-50 {
+  height: 50vh;
+}
+
+/* END CUSTOME HEIGHT */
+/* OUTSIDE STYLE */
+.gradient {
+  background-image: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
+}
+
+.browser-mockup {
+  border-top: 2em solid rgba(230, 230, 230, 0.7);
+  position: relative;
+  height: 60vh;
+}
+
+.browser-mockup:before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: -1.25em;
+  left: 1em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: #f44;
+  box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+}
+
+.browser-mockup > * {
+  display: block;
+}
+
+/* END OUTSIDE STYLE */
